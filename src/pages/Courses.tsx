@@ -1,24 +1,32 @@
-import { useState } from "react";
 import { courses } from "@/data/mockData";
 import { Clock, Users, Calendar, DollarSign } from "lucide-react";
+import { PageMeta } from "@/components/PageMeta";
+import { Link, Navigate, useParams } from "react-router-dom";
 
 export default function Courses() {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const { courseId } = useParams();
+  const course = courseId ? courses.find((item) => item.id === courseId) : null;
 
-  const course = selectedCourse ? courses.find(c => c.id === selectedCourse) : null;
+  if (courseId && !course) {
+    return <Navigate to="/courses" replace />;
+  }
 
   if (course) {
     return (
       <div className="min-h-screen bg-background">
+        <PageMeta
+          title={`${course.title} | For Kids, By Kids`}
+          description={course.shortBlurb}
+        />
         {/* Course Detail Header */}
         <section className="py-16 px-4 bg-muted">
           <div className="container mx-auto">
-            <button 
-              onClick={() => setSelectedCourse(null)}
-              className="mb-6 text-primary hover:text-primary/80 font-medium"
+            <Link
+              to="/courses"
+              className="mb-6 inline-flex text-primary hover:text-primary/80 font-medium"
             >
               ← Back to Courses
-            </button>
+            </Link>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
@@ -49,16 +57,19 @@ export default function Courses() {
                 </div>
               </div>
               <div className="bg-card shadow-soft rounded-2xl p-6">
-                <h3 className="font-heading font-semibold text-lg mb-4">Ready to enroll?</h3>
+                <h3 className="font-heading font-semibold text-lg mb-4">
+                  Interested in this program?
+                </h3>
                 <p className="text-muted-foreground mb-6">
-                  Join {course.title} and start building amazing projects with peer instructors who get it.
+                  Send us your information and we will share scheduling and registration
+                  details when the next session is confirmed.
                 </p>
-                <a 
-                  href="/contact"
+                <Link
+                  to={`/contact?interest=${course.id}`}
                   className="inline-flex items-center justify-center w-full h-12 px-6 py-3 text-base rounded-full font-medium gradient-hero text-white hover:shadow-medium transition-bounce"
                 >
-                  Enroll Now
-                </a>
+                  Join the Interest List
+                </Link>
               </div>
             </div>
           </div>
@@ -119,6 +130,10 @@ export default function Courses() {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Courses | For Kids, By Kids"
+        description="Explore beginner-friendly coding and AI programs taught by student instructors through hands-on projects."
+      />
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
@@ -151,14 +166,14 @@ export default function Courses() {
                     </span>
                     <span className="text-sm text-muted-foreground">{course.ageRange}</span>
                   </div>
-                  
+
                   <h3 className="text-xl font-heading font-bold text-foreground mb-2">
                     {course.title}
                   </h3>
                   <p className="text-muted-foreground mb-4 line-clamp-2">
                     {course.shortBlurb}
                   </p>
-                  
+
                   <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
@@ -168,13 +183,13 @@ export default function Courses() {
                       <span className="font-medium text-primary">{course.price}</span>
                     )}
                   </div>
-                  
-                  <button
-                    onClick={() => setSelectedCourse(course.id)}
-                    className="w-full h-12 px-6 py-3 text-base rounded-full font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
+
+                  <Link
+                    to={`/courses/${course.id}`}
+                    className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-smooth hover:bg-primary/90"
                   >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -183,34 +198,43 @@ export default function Courses() {
       </section>
 
       {/* Parent Info FAQ */}
-      <section className="py-16 px-4 bg-muted">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
-            Parent Information
-          </h2>
-          <div className="space-y-6">
-            <div className="bg-card shadow-soft rounded-xl p-6">
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
-                How are classes structured?
+      <section className="bg-muted px-4 py-16">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-heading text-3xl font-bold text-foreground">
+              Information for Families
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Programs are beginner-friendly, project-based, and designed to help students
+              learn in a welcoming environment.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl bg-card p-6 shadow-soft">
+              <h3 className="font-heading text-lg font-semibold text-foreground">
+                Who can participate?
               </h3>
-              <p className="text-muted-foreground">
-                Our classes are small (6-8 students max) and taught by trained teenage instructors with adult supervision. We focus on hands-on projects rather than lectures, so kids build real things while learning concepts.
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Each course lists its recommended age range and experience level. Most
+                programs are designed for beginners.
               </p>
             </div>
-            <div className="bg-card shadow-soft rounded-xl p-6">
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
-                What if my child has never coded before?
+            <div className="rounded-2xl bg-card p-6 shadow-soft">
+              <h3 className="font-heading text-lg font-semibold text-foreground">
+                How much does it cost?
               </h3>
-              <p className="text-muted-foreground">
-                Perfect! Our beginner courses assume zero experience. Peer instructors are especially good at remembering what it's like to be new to coding, so they explain things in ways that really click.
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                The programs currently listed on this page are free. Any future changes will
+                be shared before registration.
               </p>
             </div>
-            <div className="bg-card shadow-soft rounded-xl p-6">
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
-                Are there scholarships available?
+            <div className="rounded-2xl bg-card p-6 shadow-soft">
+              <h3 className="font-heading text-lg font-semibold text-foreground">
+                When is the next session?
               </h3>
-              <p className="text-muted-foreground">
-                Yes! We believe every kid should have access to coding education. Contact us to discuss scholarship options - we work with families to make our programs accessible.
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Dates are announced after locations and instructors are confirmed. Join the
+                interest list to ask about upcoming opportunities.
               </p>
             </div>
           </div>
@@ -226,12 +250,12 @@ export default function Courses() {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join our community of young coders and start building amazing projects with peer instructors who make learning fun.
           </p>
-          <a 
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium gradient-hero text-white hover:shadow-medium transition-bounce"
           >
-            Get Started Today
-          </a>
+            Ask About Upcoming Programs
+          </Link>
         </div>
       </section>
     </div>

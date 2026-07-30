@@ -1,63 +1,65 @@
 import heroImage from "@/assets/hero-coding-kids.jpg";
 import projectShowcaseImage from "@/assets/project-showcase.jpg";
 import { testimonials, stats } from "@/data/mockData";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ChevronRight, Users, Target, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageMeta } from "@/components/PageMeta";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Auto-advance testimonials
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % Math.min(testimonials.length, 3));
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="For Kids, By Kids | Learn, Build, Lead"
+        description="Hands-on coding and AI programs created and taught by students for students through welcoming, project-based learning."
+      />
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-background via-muted/30 to-background">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground mb-6 leading-tight">
-                For Kids, By Kids: 
+                For Kids, By Kids:
                 <span className="gradient-hero bg-clip-text text-transparent block">
                   Learn, Build, Lead
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Hands-on coding and AI programs created and taught by students for students. 
+                Hands-on coding and AI programs created and taught by students for students.
                 Join our peer-led community where learning is fun, approachable, and totally gets you.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild variant="hero" size="lg">
-                  <a href="/courses">
+                  <Link to="/courses">
                     Explore Courses
                     <ChevronRight className="w-5 h-5 ml-2" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href="/journey">See Our Journey</a>
+                  <Link to="/journey">See Our Journey</Link>
                 </Button>
               </div>
             </div>
             <div className="relative">
-              <img 
-                src={heroImage} 
+              <img
+                src="public/Website-Photos/AI-ML-Python-2a5/0D5A7405.jpg"
                 alt="Diverse kids collaborating on coding projects in a bright classroom"
                 className="rounded-2xl shadow-strong w-full object-cover"
               />
               <div className="absolute -bottom-4 -left-4 bg-card shadow-medium rounded-xl p-4">
-                <div className="text-2xl font-heading font-bold text-primary">30+</div>
-                <div className="text-sm text-muted-foreground">Happy Students</div>
+                <div className="text-2xl font-heading font-bold text-primary">120+</div>
+                <div className="text-sm text-muted-foreground">Students Reached</div>
               </div>
-              <div className="absolute -top-4 -right-4 bg-card shadow-medium rounded-xl p-4">
+              <div className="absolute -top--20 -right-4 bg-card shadow-medium rounded-xl p-4">
                 <div className="text-2xl font-heading font-bold text-secondary">4.9★</div>
-                <div className="text-sm text-muted-foreground">Parent Rating</div>
+                <div className="text-sm text-muted-foreground">Student Rating</div>
+              </div>
+              <div className="absolute -top-36 -right-3.5 bg-card shadow-medium rounded-xl p-4">
+                <div className="text-2xl font-heading font-bold text-secondary">64</div>
+                <div className="text-sm text-muted-foreground">Sessions Held</div>
               </div>
             </div>
           </div>
@@ -73,8 +75,11 @@ const Index = () => {
                 Our Mission
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                We create welcoming, peer-led tech learning so every kid can build something real—today. 
-                No boring lectures, no intimidating jargon. Just students teaching students in the way that actually works.
+                Our camps are built <i>for kids, by kids</i>—a space where learning feels natural, fun, and real. 
+                We teach through games, projects, and collaboration, not boring lectures or intimidating jargon. 
+                Each student gets to build something meaningful to them while learning side by side with peers 
+                who make the process welcoming and engaging. The camps embody the spirit of students teaching 
+                students in a way that actually works. 
               </p>
             </div>
             <div className="grid gap-6">
@@ -123,7 +128,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-heading font-bold text-foreground mb-4">Beginner-Friendly</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Never coded before? Perfect! We start from absolute zero and build up step by step. 
+                Never coded before? Perfect! We start from absolute zero and build up step by step.
                 Our peer instructors remember being beginners too.
               </p>
             </div>
@@ -133,7 +138,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-heading font-bold text-foreground mb-4">Real Projects</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Build actual games, calculators, and AI models. No boring textbook exercises. 
+                Build actual games, calculators, and AI models. No boring textbook exercises.
                 Everything you create is something you'd want to show off.
               </p>
             </div>
@@ -143,7 +148,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-heading font-bold text-foreground mb-4">Supportive Mentors</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Learn from teenage instructors who speak your language and get your struggles. 
+                Learn from teenage instructors who speak your language and get your struggles.
                 It's like having a cool older sibling teach you to code.
               </p>
             </div>
@@ -173,9 +178,9 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
-            What Families Are Saying
+            What Students Are Saying
           </h2>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="bg-card shadow-medium rounded-2xl p-8 md:p-12 text-center">
               <div className="flex items-center justify-center mb-6">
@@ -183,11 +188,28 @@ const Index = () => {
                   <Star key={i} className="w-6 h-6 text-secondary fill-current" />
                 ))}
               </div>
-              
-              <blockquote className="text-xl md:text-2xl text-foreground font-medium mb-6 leading-relaxed">
-                "{testimonials[currentTestimonial]?.quote}"
-              </blockquote>
-              
+
+              {/* Arrows and quote */}
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <button
+                  aria-label="Previous testimonial"
+                  className="p-2 rounded-full bg-muted hover:bg-primary/20 text-primary transition-smooth"
+                  onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                >
+                  <ChevronRight className="w-6 h-6 rotate-180" />
+                </button>
+                <blockquote className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-xl">
+                  "{testimonials[currentTestimonial]?.quote}"
+                </blockquote>
+                <button
+                  aria-label="Next testimonial"
+                  className="p-2 rounded-full bg-muted hover:bg-primary/20 text-primary transition-smooth"
+                  onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+
               <div className="flex items-center justify-center gap-4">
                 <div className="w-12 h-12 gradient-hero rounded-full flex items-center justify-center text-white font-heading font-bold">
                   {testimonials[currentTestimonial]?.name?.charAt(0)}
@@ -199,19 +221,24 @@ const Index = () => {
                   <div className="text-sm text-muted-foreground">
                     {testimonials[currentTestimonial]?.role}
                   </div>
+                  <div className="text-xs text-muted-foreground">
+                    {testimonials[currentTestimonial]?.context}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Dots indicator */}
+            {/* Dots indicator for 10 testimonials */}
             <div className="flex items-center justify-center gap-2 mt-8">
-              {testimonials.slice(0, 3).map((_, index) => (
+              {testimonials.slice(0, 10).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
+                  aria-label={`Show testimonial ${index + 1}`}
+                  aria-current={index === currentTestimonial ? "true" : undefined}
                   className={`w-3 h-3 rounded-full transition-smooth ${
-                    index === currentTestimonial 
-                      ? 'bg-primary' 
+                    index === currentTestimonial
+                      ? 'bg-primary'
                       : 'bg-muted hover:bg-primary/50'
                   }`}
                 />
@@ -226,8 +253,8 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img 
-                src={projectShowcaseImage} 
+              <img
+                src="public/Website-Photos/AI-ML-Python-2a5/0D5A7405.jpg"
                 alt="Kids proudly displaying their completed coding projects on laptop screens"
                 className="rounded-2xl shadow-strong w-full object-cover"
               />
@@ -237,15 +264,15 @@ const Index = () => {
                 Built by students, for students
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Every line of code in our curriculum was written by a student who learned it the hard way. 
+                Every line of code in our curriculum was written by a student who learned it the hard way.
                 We know which explanations actually make sense because we've been exactly where you are.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild variant="hero">
-                  <a href="/courses">Start Learning Today</a>
+                  <Link to="/courses">Explore Programs</Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <a href="/about">Meet Our Team</a>
+                  <Link to="/about">Meet Our Team</Link>
                 </Button>
               </div>
             </div>
@@ -260,18 +287,18 @@ const Index = () => {
             Ready to start building?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Join our community of young coders and discover what you can create when learning is led by people who actually get it. 
+            Join our community of young coders and discover what you can create when learning is led by people who actually get it.
             Your first project is just one click away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="hero" size="lg">
-              <a href="/courses">
+              <Link to="/courses">
                 Explore Our Courses
                 <ChevronRight className="w-5 h-5 ml-2" />
-              </a>
+              </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="/contact">Ask Us Anything</a>
+              <Link to="/contact">Ask Us Anything</Link>
             </Button>
           </div>
         </div>

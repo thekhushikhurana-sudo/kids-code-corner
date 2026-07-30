@@ -1,27 +1,29 @@
+import { PageMeta } from "@/components/PageMeta";
+import { Link } from "react-router-dom";
 import peerTeachingImage from "@/assets/peer-teaching.jpg";
 
-export default function AboutMe() {
+export default function AboutUs() {
   const instructors = [
     {
-      name: "Alex Chen",
-      role: "Founder & Lead Instructor",
-      funFact: "Built first website at age 12",
-      skills: ["Python", "AI/ML", "Web Development", "Teaching"],
-      bio: "Started coding in middle school and fell in love with the creative problem-solving. Founded For Kids, By Kids because I believe peer learning makes complex concepts click in ways adult instruction sometimes can't."
+      name: "Khushi Khurana",
+      role: "Founder, Head Instructor & Curriculum Lead",
+      funFact: "Gave a TEDx talk at 14 🎤",
+      skills: ["Python", "AI/ML", "Web Development", "Teaching", "Public Speaking", "Women in Tech Advocacy", "Curriculum Design"],
+      bio: "Khushi Khurana is a student educator whose journey began at a STEM conference where she discovered that coding could be creative and exciting. She founded For Kids, By Kids to make technology more accessible through peer learning and has helped teach more than 120 students through hands-on coding camps. Her mission is to help close the gender gap in technology by empowering young people to learn from and inspire one another."
     },
     {
-      name: "Maya Rodriguez",
-      role: "Python Instructor",
-      funFact: "Kahoot champion 3 years running",
-      skills: ["Python", "Game Development", "Data Viz", "Debugging"],
-      bio: "Love helping younger kids discover that coding isn't scary - it's like solving puzzles with infinite possibilities! Specializes in making Python fundamentals fun and memorable."
+      name: "Aditya Khurana",
+      role: "Co-founder, Content Lead & Instructor",
+      funFact: "Runs his own business 🚀",
+      skills: ["Python", "Game Development", "Debugging", "Entrepreneurship", "Web Development", "Problem Solving", "AI Tools Integration"],
+      bio: "Aditya Khurana is a student entrepreneur with a passion for coding and technology. He has experience in Python programming, web development, community-service projects using AI tools, and data visualization. Aditya loves solving complex problems and is dedicated to helping other students discover the joy of coding through peer-led learning."
     },
     {
-      name: "Jordan Kim",
-      role: "AI/ML Instructor",
-      funFact: "Trained an AI to recognize their cat's moods",
-      skills: ["Machine Learning", "Ethics in AI", "Python", "Research"],
-      bio: "Passionate about making AI accessible and teaching kids to think critically about technology's impact on society. Believes every young person should understand how AI works."
+      name: "Charu Khurana",
+      role: "Mentor & AI Adviser",
+      funFact: "Acted in a Bollywood movie 🤩",
+      skills: ["Machine Learning", "Ethics in AI", "Python", "Mentoring", "Cloud Architecture", "Leadership Development", "Research"],
+      bio: "Charu Khurana is a Solution Architect Manager at Amazon Web Services with a passion for teaching, mentoring, and technology. She is dedicated to making technology accessible and inspiring kids to think critically about its impact on society. She believes every young person should understand how technology works."
     }
   ];
 
@@ -50,6 +52,10 @@ export default function AboutMe() {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="About Our Team | For Kids, By Kids"
+        description="Meet the student instructors and mentors behind For Kids, By Kids and learn why peer-led technology education works."
+      />
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
@@ -59,31 +65,34 @@ export default function AboutMe() {
                 About Our Team
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                We're a group of teenage coders who believe the best way to learn is from peers who "get it." Our mission is simple: make STEM learning fun, approachable, and led by students who remember what it's like to be beginners.
+                We are a team of student instructors and mentors who believe learning works
+                best when it feels relatable. Our mission is simple: make technology
+                approachable, hands-on, and led by students who remember what it is like to
+                be beginners.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="/courses"
+                <Link
+                  to="/courses"
                   className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium gradient-hero text-white hover:shadow-medium transition-bounce"
                 >
                   See Our Courses
-                </a>
-                <a 
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/contact"
                   className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium border-2 border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-smooth"
                 >
                   Get in Touch
-                </a>
+                </Link>
               </div>
             </div>
             <div className="relative">
-              <img 
-                src={peerTeachingImage} 
+              <img
+                src="/team.jpeg"
                 alt="Teenage instructor teaching younger students in a bright classroom setting"
                 className="rounded-2xl shadow-strong w-full object-cover"
               />
               <div className="absolute -bottom-6 -right-6 bg-card shadow-medium rounded-xl p-4">
-                <div className="text-2xl font-heading font-bold text-primary">30+</div>
+                <div className="text-2xl font-heading font-bold text-primary">120+</div>
                 <div className="text-sm text-muted-foreground">Students taught</div>
               </div>
             </div>
@@ -99,10 +108,17 @@ export default function AboutMe() {
           </h2>
           <div className="bg-card shadow-soft rounded-2xl p-8 md:p-12">
             <p className="text-lg text-foreground leading-relaxed mb-6">
-              It started with a simple observation: when I was struggling with Python loops, a friend explained it in 30 seconds and suddenly everything clicked. Adult tutorials took hours, but peer explanation was instant.
+              I used to think coding was boring, until I realized it wasn’t the subject—it 
+              was how it was being taught. Adult tutorials took hours, 
+              but when a peer explained it, everything made sense in minutes. 
+              Kids explain things differently than adults: we share the same slang, 
+              the same frustrations, and we remember exactly which parts are confusing 
+              because we just went through them ourselves. 
             </p>
             <p className="text-lg text-foreground leading-relaxed mb-6">
-              That's when we realized - students explain things differently than adults. We use the same slang, relate to the same frustrations, and remember exactly which parts are confusing because we just learned them ourselves.
+              That’s the power of peer learning—it makes coding fun, relatable, and 
+              less intimidating. That insight shaped the beginning of my first camp, 
+              and it’s what continues to drive them today. 
             </p>
             <p className="text-lg text-primary font-medium">
               "If kids can teach kids better, why isn't this how all coding education works?"
@@ -117,32 +133,32 @@ export default function AboutMe() {
           <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Meet Our Instructors
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {instructors.map((instructor, index) => (
-              <div key={index} className="bg-card shadow-soft rounded-2xl p-6 hover:shadow-medium transition-smooth">
-                <div className="w-16 h-16 gradient-hero rounded-full flex items-center justify-center text-white font-heading font-bold text-xl mb-4">
+              <div key={index} className="bg-card shadow-soft rounded-2xl p-6 hover:shadow-medium transition-smooth text-center">
+                <div className="w-16 h-16 gradient-hero rounded-full flex items-center justify-center text-white font-heading font-bold text-xl mb-4 mx-auto">
                   {instructor.name.split(' ').map(n => n[0]).join('')}
                 </div>
-                
+
                 <h3 className="text-xl font-heading font-bold text-foreground mb-1">
                   {instructor.name}
                 </h3>
                 <p className="text-primary font-medium mb-3">{instructor.role}</p>
-                
+
                 <div className="bg-accent/50 rounded-lg p-3 mb-4">
                   <p className="text-sm text-accent-foreground">
                     <span className="font-medium">Fun fact:</span> {instructor.funFact}
                   </p>
                 </div>
-                
+
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                   {instructor.bio}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {instructor.skills.map((skill, skillIndex) => (
-                    <span 
+                    <span
                       key={skillIndex}
                       className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
                     >
@@ -162,7 +178,7 @@ export default function AboutMe() {
           <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             What We Believe
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <div key={index} className="bg-card shadow-soft rounded-xl p-6 hover:shadow-medium transition-smooth">
@@ -192,7 +208,8 @@ export default function AboutMe() {
               We're just getting started! Our goal is to prove that peer-led education works so well that schools and programs everywhere start incorporating it.
             </p>
             <p className="text-lg text-foreground leading-relaxed mb-6">
-              This year, we're expanding to serve more students, training additional peer instructors, and developing new courses in web development and data science.
+              Our next steps are to serve more students, train additional peer instructors,
+              and develop new courses in areas such as web development and data science.
             </p>
             <p className="text-lg text-primary font-medium">
               Want to help us change how kids learn technology? Join our community!
@@ -211,18 +228,18 @@ export default function AboutMe() {
             Join our community of young coders and experience the difference peer-led learning makes. Every student deserves to feel confident in tech.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/courses"
+            <Link
+              to="/courses"
               className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium gradient-hero text-white hover:shadow-medium transition-bounce"
             >
               View Our Courses
-            </a>
-            <a 
-              href="/journey"
+            </Link>
+            <Link
+              to="/journey"
               className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium border-2 border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-smooth"
             >
               See Our Journey
-            </a>
+            </Link>
           </div>
         </div>
       </section>
