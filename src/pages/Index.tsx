@@ -1,5 +1,3 @@
-import heroImage from "@/assets/hero-coding-kids.jpg";
-import projectShowcaseImage from "@/assets/project-showcase.jpg";
 import { testimonials, stats } from "@/data/mockData";
 import { useState } from "react";
 import { ChevronRight, Users, Target, Heart, Star } from "lucide-react";
@@ -45,7 +43,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <img
-                src="public/Website-Photos/AI-ML-Python-2a5/0D5A7405.jpg"
+                src="/Website-Photos/AI-ML-Python-25/0D5A7405.jpg"
                 alt="Diverse kids collaborating on coding projects in a bright classroom"
                 className="rounded-2xl shadow-strong w-full object-cover"
               />
@@ -254,7 +252,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img
-                src="public/Website-Photos/AI-ML-Python-2a5/0D5A7405.jpg"
+                src="/Website-Photos/AI-ML-Python-25/0D5A7405.jpg"
                 alt="Kids proudly displaying their completed coding projects on laptop screens"
                 className="rounded-2xl shadow-strong w-full object-cover"
               />

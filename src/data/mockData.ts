@@ -302,7 +302,7 @@ export const journeyMilestones: JourneyMilestone[] = [
     title: "First Camp: Scratch! 🎊",
     date: "Summer 2023",
     description: "The first camp was a hit! It began in a basement and grew to 20+ kids. The students built games, worked together, and had a blast!",
-  image: "2.jpeg",
+  image: "/2.jpeg",
     tag: "Beginning"
   },
   {
@@ -341,7 +341,7 @@ export const stats: Stat[] = [
 export const galleryItems: GalleryItem[] = [
   {
     id: "1",
-    image: "/Website-Photos/Python Summer 24/IMG_2272.png",
+    image: "/Website-Photos/Python Summer 24/IMG_2272.jpg",
     caption: "Students working on their first Python projects during summer camp",
     category: "Camps",
     date: "June 2023",
@@ -349,7 +349,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "2",
-    image: "/Website-Photos/AI-ML-Python-25/0D5A7402.png",
+    image: "/Website-Photos/AI-ML-Python-25/0D5A7402.jpg",
     caption: "Demo Day presentations - kids showing off their games",
     category: "Events",
     date: "November 2023",
@@ -357,28 +357,28 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "3",
-    image: "/Website-Photos/AI-ML-Python-25/IMG_7652.png",
+    image: "/Website-Photos/AI-ML-Python-25/IMG_7652.jpg",
     caption: "AI workshop - training image classifiers",
     category: "Camps",
     date: "August 2023"
   },
   {
     id: "4",
-    image: "/Website-Photos/Python Middle 24/IMG_6092.png",
+    image: "/Website-Photos/Python Middle 24/IMG_6092.jpg",
     caption: "Calculator app built by 12-year-old Maya",
     category: "Projects",
     date: "July 2023"
   },
   {
     id: "5",
-    image: "/Website-Photos/Scratch Camp 2023/IMG_4492.png",
+    image: "/Website-Photos/Scratch Camp 2023/IMG_4492.jpg",
     caption: "Rock-Paper-Scissors tournament with student-built games",
     category: "Events",
     date: "September 2023"
   },
   {
     id: "6",
-    image: "/Website-Photos/Python Summer 25/0D5A8856.png",
+    image: "/Website-Photos/Python Summer 25/0D5A8856.jpg",
     caption: "Data visualization projects showing local weather patterns",
     category: "Projects",
     date: "October 2023"
