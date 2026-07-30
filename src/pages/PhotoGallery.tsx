@@ -39,28 +39,28 @@ export default function PhotoGallery() {
       name: "AI-ML-Python-25",
       folder: "AI-ML-Python-25",
       images: [
-        "0D5A7402.png","0D5A7405.png","0D5A7406.png","0D5A7408.png","0D5A7409.png","0D5A7454.png","0D5A7457.png","0D5A7459.png","0D5A7460.png","0D5A7465.png","0D5A7468.png","0D5A7469.png","0D5A7470.png","0D5A7473.png","0D5A7474.png","0D5A7475.png","0D5A7476.png","0D5A7477.png","IMG_7652.png","IMG_7653.png","IMG_7654.png","IMG_7655.png","IMG_7736.png","IMG_7737.png","IMG_7740.png","IMG_7743.png","IMG_7747.png","IMG_7749.png","IMG_7750.png","IMG_7774.png","IMG_7775.png","IMG_7777.png","IMG_7779.png","IMG_7781.png","IMG_7791.png","IMG_8293.png"
+        "0D5A7402.jpg","0D5A7405.jpg","0D5A7406.jpg","0D5A7408.jpg","0D5A7409.jpg","0D5A7454.jpg","0D5A7457.jpg","0D5A7459.jpg","0D5A7460.jpg","0D5A7465.jpg","0D5A7468.jpg","0D5A7469.jpg","0D5A7470.jpg","0D5A7473.jpg","0D5A7474.jpg","0D5A7475.jpg","0D5A7476.jpg","0D5A7477.jpg","IMG_7652.jpg","IMG_7653.jpg","IMG_7654.jpg","IMG_7655.jpg","IMG_7736.jpg","IMG_7737.jpg","IMG_7740.jpg","IMG_7743.jpg","IMG_7747.jpg","IMG_7749.jpg","IMG_7750.jpg","IMG_7774.jpg","IMG_7775.jpg","IMG_7777.jpg","IMG_7779.jpg","IMG_7781.jpg","IMG_7791.jpg","IMG_8293.jpg"
       ]
     },
     {
       name: "Python Summer 25",
       folder: "Python Summer 25",
-      images: ["0D5A8856.png","0D5A8857.png","0D5A8858.png","0D5A8860.png","0D5A8861.png","0D5A8863.png","0D5A8865.png","0D5A8866.png","0D5A8873.png","0D5A8880.png","IMG_7757.png","IMG_7760.png","IMG_7769.png","IMG_7770.png","IMG_7905.png","IMG_7906.png"]
+      images: ["0D5A8856.jpg","0D5A8857.jpg","0D5A8858.jpg","0D5A8860.jpg","0D5A8861.jpg","0D5A8863.jpg","0D5A8865.jpg","0D5A8866.jpg","0D5A8873.jpg","0D5A8880.jpg","IMG_7757.jpg","IMG_7760.jpg","IMG_7769.jpg","IMG_7770.jpg","IMG_7905.jpg","IMG_7906.jpg"]
     },
     {
       name: "Python Summer 24",
       folder: "Python Summer 24",
-      images: ["IMG_2272.png","IMG_2273.png","IMG_2274.png","IMG_2407.png","IMG_2411.png","IMG_3859.png","IMG_7119.png","IMG_7188.png","IMG_7276.png","IMG_7280.png","IMG_7282.png","IMG_7285.png","IMG_7287.png","IMG_7291.png","IMG_7303.png"]
+      images: ["IMG_2272.jpg","IMG_2273.jpg","IMG_2274.jpg","IMG_2407.jpg","IMG_2411.jpg","IMG_3859.jpg","IMG_7119.jpg","IMG_7188.jpg","IMG_7276.jpg","IMG_7280.jpg","IMG_7282.jpg","IMG_7285.jpg","IMG_7287.jpg","IMG_7291.jpg","IMG_7303.jpg"]
     },
     {
       name: "Python Middle 24",
       folder: "Python Middle 24",
-      images: ["IMG_6092.png","IMG_6095.png","IMG_6099.png","IMG_6104.png","IMG_6105.png","IMG_6108.png"]
+      images: ["IMG_6092.jpg","IMG_6095.jpg","IMG_6099.jpg","IMG_6104.jpg","IMG_6105.jpg","IMG_6108.jpg"]
     },
     {
       name: "Scratch Camp 2023",
       folder: "Scratch Camp 2023",
-      images: ["IMG_4492.png","IMG_4493.png","IMG_4507.png"]
+      images: ["IMG_4492.jpg","IMG_4493.jpg"]
     }
   ];
 
@@ -115,11 +115,11 @@ export default function PhotoGallery() {
                     onFocus={() => {
                       previousFocusRef.current = document.activeElement as HTMLElement;
                     }}
-                    onClick={() => setLightboxImage(`/Website-Photos/${camp.folder}/${img.replace(/\.png$/i, ".jpg")}`)}
+                    onClick={() => setLightboxImage(`/Website-Photos/${camp.folder}/${img}`)}
                   >
                     <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative overflow-hidden">
                       <img
-                        src={`/Website-Photos/${camp.folder}/${img.replace(/\.png$/i, ".jpg")}`}
+                        src={`/Website-Photos/${camp.folder}/${img}`}
                         alt={camp.name + ' photo ' + (idx+1)}
                         className="object-cover w-full h-full absolute inset-0"
                         style={{ zIndex: 1 }}

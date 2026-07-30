@@ -87,7 +87,7 @@ export default function AboutUs() {
             </div>
             <div className="relative">
               <img
-                src="/team.jpeg"
+                src={peerTeachingImage}
                 alt="Teenage instructor teaching younger students in a bright classroom setting"
                 className="rounded-2xl shadow-strong w-full object-cover"
               />
