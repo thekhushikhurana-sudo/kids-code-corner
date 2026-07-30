@@ -21,7 +21,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2" aria-label="For Kids, By Kids home">
           <div className="gradient-hero w-10 h-10 rounded-full flex items-center justify-center">
             <span className="text-white font-heading font-bold text-lg">FK</span>
           </div>
@@ -31,11 +31,12 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden xl:flex items-center space-x-1" aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
+              aria-current={location.pathname === item.path ? "page" : undefined}
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium transition-smooth",
                 location.pathname === item.path
@@ -52,8 +53,11 @@ export function Navbar() {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="xl:hidden"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
           {isOpen ? <X /> : <Menu />}
         </Button>
@@ -61,12 +65,13 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden border-t bg-background">
-          <nav className="container py-4 px-4">
+        <div className="xl:hidden border-t bg-background" id="mobile-navigation">
+          <nav className="container py-4 px-4" aria-label="Mobile navigation">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
+                aria-current={location.pathname === item.path ? "page" : undefined}
                 onClick={() => setIsOpen(false)}
                 className={cn(
                   "block px-4 py-3 rounded-lg text-base font-medium transition-smooth",

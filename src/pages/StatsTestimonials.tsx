@@ -1,17 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { stats, testimonials } from "@/data/mockData";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { PageMeta } from "@/components/PageMeta";
+import { Link } from "react-router-dom";
 
 export default function StatsTestimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  // Auto-advance testimonials
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -23,6 +17,10 @@ export default function StatsTestimonials() {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Impact and Testimonials | For Kids, By Kids"
+        description="See program participation, student feedback, and the impact of peer-led coding education at For Kids, By Kids."
+      />
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
@@ -55,6 +53,10 @@ export default function StatsTestimonials() {
               </div>
             ))}
           </div>
+          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
+            Participation figures reflect internal program records. Ratings and quotations
+            come from anonymous post-camp student feedback.
+          </p>
         </div>
       </section>
 
@@ -62,7 +64,7 @@ export default function StatsTestimonials() {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
-            What Families Are Saying
+            What Students Are Saying
           </h2>
           
           <div className="relative">
@@ -88,6 +90,9 @@ export default function StatsTestimonials() {
                   <div className="text-sm text-muted-foreground">
                     {testimonials[currentTestimonial].role}
                   </div>
+                  <div className="text-xs text-muted-foreground">
+                    {testimonials[currentTestimonial].context}
+                  </div>
                 </div>
               </div>
             </div>
@@ -95,12 +100,14 @@ export default function StatsTestimonials() {
             {/* Navigation buttons */}
             <button
               onClick={prevTestimonial}
+              aria-label="Previous testimonial"
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background shadow-soft rounded-full flex items-center justify-center hover:shadow-medium transition-smooth"
             >
               <ChevronLeft className="w-6 h-6 text-primary" />
             </button>
             <button
               onClick={nextTestimonial}
+              aria-label="Next testimonial"
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background shadow-soft rounded-full flex items-center justify-center hover:shadow-medium transition-smooth"
             >
               <ChevronRight className="w-6 h-6 text-primary" />
@@ -112,6 +119,8 @@ export default function StatsTestimonials() {
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
+                  aria-label={`Show testimonial ${index + 1}`}
+                  aria-current={index === currentTestimonial ? "true" : undefined}
                   className={`w-3 h-3 rounded-full transition-smooth ${
                     index === currentTestimonial 
                       ? 'bg-primary' 
@@ -155,6 +164,9 @@ export default function StatsTestimonials() {
                     <div className="text-xs text-muted-foreground">
                       {testimonial.role}
                     </div>
+                    <div className="text-xs text-muted-foreground">
+                      {testimonial.context}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -173,18 +185,18 @@ export default function StatsTestimonials() {
             Don't just take our word for it - experience the joy of peer-led learning yourself. Join our next coding camp or workshop.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/courses"
+            <Link
+              to="/courses"
               className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium gradient-hero text-white hover:shadow-medium transition-bounce"
             >
               Explore Our Courses
-            </a>
-            <a 
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center h-12 px-6 py-3 text-base rounded-full font-medium border-2 border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-smooth"
             >
               Ask Us Anything
-            </a>
+            </Link>
           </div>
         </div>
       </section>
